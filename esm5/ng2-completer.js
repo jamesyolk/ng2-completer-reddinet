@@ -232,9 +232,9 @@ var RemoteData = /** @class */ (function (_super) {
         this.remoteSearch = this.http
             .get(url, Object.assign({}, this._requestOptions))
             .pipe(map(function (data) {
-            // const matches = this.extractValue(data, this._dataField);
+            var matches = _this.extractValue(data, _this._dataField);
             // return this.extractMatches(matches, term);
-            return data;
+            return matches;
         }), catchError(function () { return []; }))
             .subscribe(function (matches) {
             var results = _this.processResults(matches);

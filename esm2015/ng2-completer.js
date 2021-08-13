@@ -217,9 +217,9 @@ class RemoteData extends CompleterBaseData {
         this.remoteSearch = this.http
             .get(url, Object.assign({}, this._requestOptions))
             .pipe(map((data) => {
-            // const matches = this.extractValue(data, this._dataField);
+            const matches = this.extractValue(data, this._dataField);
             // return this.extractMatches(matches, term);
-            return data;
+            return matches;
         }), catchError(() => []))
             .subscribe((matches) => {
             const results = this.processResults(matches);

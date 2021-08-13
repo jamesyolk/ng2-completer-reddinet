@@ -1303,9 +1303,9 @@
             this.remoteSearch = this.http
                 .get(url, Object.assign({}, this._requestOptions))
                 .pipe(operators.map(function (data) {
-                // const matches = this.extractValue(data, this._dataField);
+                var matches = _this.extractValue(data, _this._dataField);
                 // return this.extractMatches(matches, term);
-                return data;
+                return matches;
             }), operators.catchError(function () { return []; }))
                 .subscribe(function (matches) {
                 var results = _this.processResults(matches);
